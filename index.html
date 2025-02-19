@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCORPUS</title>
+    <style>
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 1px #B14FB4); }
+            6.25% { filter: drop-shadow(0 0 2px #B14FB4); }
+            12.5% { filter: drop-shadow(0 0 4px #B14FB4); }
+            18.75% { filter: drop-shadow(0 0 6px #B14FB4); }
+            25% { filter: drop-shadow(0 0 8px #B14FB4); }
+            31.25% { filter: drop-shadow(0 0 10px #B14FB4); }
+            37.5% { filter: drop-shadow(0 0 12px #B14FB4); }
+            43.75% { filter: drop-shadow(0 0 14px #B14FB4); }
+            50% { filter: drop-shadow(0 0 16px #B14FB4); }
+            56.25% { filter: drop-shadow(0 0 14px #B14FB4); }
+            62.5% { filter: drop-shadow(0 0 12px #B14FB4); }
+            68.75% { filter: drop-shadow(0 0 10px #B14FB4); }
+            75% { filter: drop-shadow(0 0 8px #B14FB4); }
+            81.25% { filter: drop-shadow(0 0 6px #B14FB4); }
+            87.5% { filter: drop-shadow(0 0 4px #B14FB4); }
+            93.75% { filter: drop-shadow(0 0 2px #B14FB4); }
+            100% { filter: drop-shadow(0 0 1px #B14FB4); }
+        }
+        
+        body {
+            background-color: black;
+            color: #6c2f6d;
+            font-family: 'Times New Roman', condensed, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-image: url('bgpurp.gif');
+            background-repeat: repeat; 
+            background-position: center top;
+            background-size: auto; 
+        }
+        .eye {
+            width: 50px;
+            margin-bottom: 20px;
+            animation: glow 0.65s infinite alternate;
+            image-rendering: pixelated;
+        }
+        .title {
+            font-size: 24px;
+            font-family: 'Times New Roman', condensed, sans-serif; 
+            font-weight: bold;
+            transform: scaleX(0.79); 
+        }
+        .underline {
+            width: 100px;
+            border-bottom: 1px solid #6c2f6d;
+            margin: 5px auto 15px auto;
+        }
+        .usurper {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-family: 'Times New Roman', condensed, sans-serif;
+            font-weight: bold;
+            transform: scaleX(0.79); 
+        }
+        .login-box {
+            border: 1px dashed #6c2f6d;
+            padding: 10px;
+            width: 150px;
+        }
+        input {
+            display: block;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #6c2f6d;
+            color: #6c2f6d;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        button {
+            background: transparent;
+            border: 1px solid #6c2f6d;
+            color: #6c2f6d;
+            padding: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img src="EYE.png" alt="Symbol" class="eye">
+    <div class="title">ARCORPUS</div>
+    <div class="underline"></div>
+    <div class="usurper">Usurper</div>
+    <div class="login-box">
+        <input type="text" placeholder="ID">
+        <input type="password" placeholder="PASSWORD">
+        <button>CONNECT</button>
+    </div>
+</body>
+</html>
