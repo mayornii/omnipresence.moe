@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARCORPUS</title>
     <style>
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 1px #B14FB4); }
+            50% { filter: drop-shadow(0 0 16px #B14FB4); }
+            100% { filter: drop-shadow(0 0 1px #B14FB4); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+        
         body {
-            background-image: url('bgpurp.gif');
-            background-repeat: repeat;
-            background-position: center top;
-            background-size: auto;
+            background-color: black;
             color: #6c2f6d;
             font-family: 'Times New Roman', serif;
             text-align: center;
@@ -20,12 +30,18 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
+            background-image: url('bgpurp.gif');
+            background-repeat: repeat; 
+            background-position: center top;
+            background-size: auto; 
             image-rendering: pixelated;
-            transition: background-color 1s ease, color 1s ease;
+            transition: background-color 1s ease;
         }
         .eye {
             width: 50px;
             margin-bottom: 20px;
+            animation: glow 0.65s infinite alternate;
+            image-rendering: pixelated;
         }
         .title, .usurper {
             font-size: 24px;
@@ -74,24 +90,21 @@
     <div class="login-box" id="loginBox">
         <input type="text" id="index" placeholder="INDEX">
         <input type="password" id="password" placeholder="PASSWORD">
-        <button id="connectButton" onclick="checkCredentials()">CONNECT</button>
+        <button onclick="checkCredentials()">CONNECT</button>
     </div>
     <script>
         function checkCredentials() {
             const index = document.getElementById('index').value;
             const password = document.getElementById('password').value;
             const loginBox = document.getElementById('loginBox');
-            const connectButton = document.getElementById('connectButton');
             
             if (index === "ACB5B" && password === atob("ZHYxS3V3UGZm")) {
-                connectButton.disabled = true; 
-                document.body.style.backgroundColor = "black";
-                document.body.style.color = "black"; 
-                const audio = new Audio('beat.mp3');
+                document.body.style.backgroundColor = 'black'; 
+                const audio = new Audio('beat.mp3'); 
                 audio.play();
                 setTimeout(() => {
-                    window.location.href = "https://omnipresence.moe/azothWomb5b";
-                }, 5000); 
+                    window.location.href = "https://omnipresence.moe/azothWomb5b"; 
+                }, audio.duration * 1000); // Wait until the audio is finished before redirecting
             } else {
                 loginBox.classList.add("shake");
                 setTimeout(() => loginBox.classList.remove("shake"), 500);
