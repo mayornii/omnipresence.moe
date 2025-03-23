@@ -74,15 +74,17 @@
     <div class="login-box" id="loginBox">
         <input type="text" id="index" placeholder="INDEX">
         <input type="password" id="password" placeholder="PASSWORD">
-        <button onclick="checkCredentials()">CONNECT</button>
+        <button id="connectButton" onclick="checkCredentials()">CONNECT</button>
     </div>
     <script>
         function checkCredentials() {
             const index = document.getElementById('index').value;
             const password = document.getElementById('password').value;
             const loginBox = document.getElementById('loginBox');
+            const connectButton = document.getElementById('connectButton');
             
             if (index === "ACB5B" && password === atob("ZHYxS3V3UGZm")) {
+                connectButton.disabled = true; 
                 document.body.style.backgroundColor = "black";
                 document.body.style.color = "black"; 
                 const audio = new Audio('beat.mp3');
