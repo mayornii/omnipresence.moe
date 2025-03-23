@@ -96,20 +96,32 @@
     <div class="login-box">
         <input type="text" id="index" placeholder="INDEX">
         <input type="password" id="password" placeholder="PASSWORD">
-        <button onclick="checkLogin()">CONNECT</button>
+        <button id="connect-btn">CONNECT</button>
     </div>
 
     <script>
-        function checkLogin() {
-            var index = document.getElementById("index").value;
-            var password = document.getElementById("password").value;
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+        }
+
+        document.getElementById("connect-btn").addEventListener("click", async function () {
+            const index = document.getElementById("index").value;
+            const password = document.getElementById("password").value;
             
-            if (index === "ACB5B" && password === "dv1KuwPff") {
+            const hashedInput = await hashPassword(password);
+            const storedIndex = "ACB5B";
+            const storedHashedPassword = "e9f2324b3286d7581d87c2cf26b17cb5c2b68a4059f07cfb4c8c721dbf13f52f"; // SHA-256 of 'dv1KuwPff'
+
+            if (index === storedIndex && hashedInput === storedHashedPassword) {
                 window.location.href = "https://omnipresence.moe/azothWomb5b";
             } else {
                 alert("ACCESS DENIED");
             }
-        }
+        });
     </script>
 </body>
 </html>
