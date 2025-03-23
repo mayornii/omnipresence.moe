@@ -77,6 +77,8 @@
         <button id="connectButton" onclick="checkCredentials()">CONNECT</button>
     </div>
     <script>
+        let audioPlayed = false; 
+
         function checkCredentials() {
             const index = document.getElementById('index').value;
             const password = document.getElementById('password').value;
@@ -84,14 +86,19 @@
             const connectButton = document.getElementById('connectButton');
             
             if (index === "ACB5B" && password === atob("ZHYxS3V3UGZm")) {
-                connectButton.disabled = true; 
+                connectButton.disabled = true;
                 document.body.style.backgroundColor = "black";
                 document.body.style.color = "black"; 
-                const audio = new Audio('beat.mp3');
-                audio.play();
+
+                if (!audioPlayed) { 
+                    const audio = new Audio('beat.mp3');
+                    audio.play();
+                    audioPlayed = true;
+                }
+
                 setTimeout(() => {
                     window.location.href = "https://omnipresence.moe/azothWomb5b";
-                }, 5000); 
+                }, 5000);
             } else {
                 loginBox.classList.add("shake");
                 setTimeout(() => loginBox.classList.remove("shake"), 500);
