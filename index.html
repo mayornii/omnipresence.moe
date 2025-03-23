@@ -99,12 +99,12 @@
             const loginBox = document.getElementById('loginBox');
             
             if (index === "ACB5B" && password === atob("ZHYxS3V3UGZm")) {
-                document.body.style.backgroundColor = 'black'; // Make the background black
-                const audio = new Audio('beat.mp3'); // Play the beat
+                document.body.style.backgroundColor = 'black'; 
+                const audio = new Audio('beat.mp3'); 
                 audio.play();
                 setTimeout(() => {
-                    window.location.href = "https://omnipresence.moe/azothWomb5b"; // Redirect after playing the sound
-                }, audio.duration * 1000); // Wait until the audio is finished before redirecting
+                    window.location.href = "https://omnipresence.moe/azothWomb5b"; 
+                }, audio.duration * 1000); 
             } else {
                 loginBox.classList.add("shake");
                 setTimeout(() => loginBox.classList.remove("shake"), 500);
