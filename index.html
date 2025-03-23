@@ -7,28 +7,14 @@
     <style>
         @keyframes glow {
             0% { filter: drop-shadow(0 0 1px #B14FB4); }
-            6.25% { filter: drop-shadow(0 0 2px #B14FB4); }
-            12.5% { filter: drop-shadow(0 0 4px #B14FB4); }
-            18.75% { filter: drop-shadow(0 0 6px #B14FB4); }
-            25% { filter: drop-shadow(0 0 8px #B14FB4); }
-            31.25% { filter: drop-shadow(0 0 10px #B14FB4); }
-            37.5% { filter: drop-shadow(0 0 12px #B14FB4); }
-            43.75% { filter: drop-shadow(0 0 14px #B14FB4); }
             50% { filter: drop-shadow(0 0 16px #B14FB4); }
-            56.25% { filter: drop-shadow(0 0 14px #B14FB4); }
-            62.5% { filter: drop-shadow(0 0 12px #B14FB4); }
-            68.75% { filter: drop-shadow(0 0 10px #B14FB4); }
-            75% { filter: drop-shadow(0 0 8px #B14FB4); }
-            81.25% { filter: drop-shadow(0 0 6px #B14FB4); }
-            87.5% { filter: drop-shadow(0 0 4px #B14FB4); }
-            93.75% { filter: drop-shadow(0 0 2px #B14FB4); }
             100% { filter: drop-shadow(0 0 1px #B14FB4); }
         }
-        
+
         body {
             background-color: black;
             color: #6c2f6d;
-            font-family: 'Times New Roman', condensed, sans-serif;
+            font-family: "MS Gothic", "Times New Roman", sans-serif;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -38,39 +24,44 @@
             margin: 0;
             overflow: hidden;
             background-image: url('bgpurp.gif');
-            background-repeat: repeat; 
+            background-repeat: repeat;
             background-position: center top;
-            background-size: auto; 
+            background-size: auto;
         }
+
         .eye {
             width: 50px;
             margin-bottom: 20px;
             animation: glow 0.65s infinite alternate;
             image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
+
         .title {
             font-size: 24px;
-            font-family: 'Times New Roman', condensed, sans-serif; 
             font-weight: bold;
-            transform: scaleX(0.79); 
+            transform: scaleX(0.79);
         }
+
         .underline {
             width: 100px;
             border-bottom: 1px solid #6c2f6d;
             margin: 5px auto 15px auto;
         }
+
         .usurper {
             font-size: 18px;
             margin-bottom: 10px;
-            font-family: 'Times New Roman', condensed, sans-serif;
             font-weight: bold;
-            transform: scaleX(0.79); 
+            transform: scaleX(0.79);
         }
+
         .login-box {
             border: 1px dashed #6c2f6d;
             padding: 10px;
             width: 150px;
         }
+
         input {
             display: block;
             width: 100%;
@@ -81,12 +72,19 @@
             text-align: center;
             margin-bottom: 10px;
         }
+
+        input::placeholder {
+            color: #6c2f6d;
+            opacity: 0.7;
+        }
+
         button {
             background: transparent;
             border: 1px solid #6c2f6d;
             color: #6c2f6d;
             padding: 5px;
             width: 100%;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -96,9 +94,22 @@
     <div class="underline"></div>
     <div class="usurper">Usurper</div>
     <div class="login-box">
-        <input type="text" placeholder="INDEX">
-        <input type="password" placeholder="PASSWORD">
-        <button>CONNECT</button>
+        <input type="text" id="index" placeholder="INDEX">
+        <input type="password" id="password" placeholder="PASSWORD">
+        <button onclick="checkLogin()">CONNECT</button>
     </div>
+
+    <script>
+        function checkLogin() {
+            var index = document.getElementById("index").value;
+            var password = document.getElementById("password").value;
+            
+            if (index === "ACB5B" && password === "dv1KuwPff") {
+                window.location.href = "https://omnipresence.moe/azothWomb5b";
+            } else {
+                alert("ACCESS DENIED");
+            }
+        }
+    </script>
 </body>
 </html>
