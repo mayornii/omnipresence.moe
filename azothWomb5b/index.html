@@ -5,11 +5,13 @@
     <style>
         body { background: black; color: #0f0; font-family: monospace; }
         .corrupt { color: #f00; text-decoration: line-through; }
+        #output { white-space: pre-wrap; }
     </style>
 </head>
 <body>
-    <pre>
-        [BOOT SEQUENCE INITIATED]
+    <pre id="output"></pre>
+    <script>
+        const text = `[BOOT SEQUENCE INITIATED]
 SYSTEM CHECK... OK
 CAPSULE TAG: <b>5B</b>
 DESIGNATION: Womb
@@ -45,7 +47,18 @@ INITIATING BLACKBOX EJECTION...
 [ERROR] PROCESS HALTED ██████████
 SECONDARY CONFIRMATION REQUIRED
 [INTERFACE] PULL LEVER TO CONFIRM
-SYSTEM WARNING: CAPSULE DETONATION IMMINENT
-    </pre>
+SYSTEM WARNING: CAPSULE DETONATION IMMINENT`;
+
+        let index = 0;
+        function typeEffect() {
+            if (index < text.length) {
+                document.getElementById("output").innerHTML += text[index];
+                index++;
+                setTimeout(typeEffect, Math.random() * 50 + 25); // Vary speed slightly
+            }
+        }
+        
+        typeEffect();
+    </script>
 </body>
 </html>
