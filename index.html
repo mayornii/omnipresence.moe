@@ -61,9 +61,6 @@
             width: 100%;
             font-family: 'Times New Roman', serif;
         }
-        .shake {
-            animation: shake 0.5s ease-in-out;
-        }
     </style>
 </head>
 <body>
@@ -74,34 +71,26 @@
     <div class="login-box" id="loginBox">
         <input type="text" id="index" placeholder="INDEX">
         <input type="password" id="password" placeholder="PASSWORD">
-        <button id="connectButton" onclick="checkCredentials()">CONNECT</button>
+        <button onclick="checkCredentials()">CONNECT</button>
     </div>
     <script>
-        let audioPlayed = false; 
-
         function checkCredentials() {
             const index = document.getElementById('index').value;
             const password = document.getElementById('password').value;
             const loginBox = document.getElementById('loginBox');
-            const connectButton = document.getElementById('connectButton');
             
             if (index === "ACB5B" && password === atob("ZHYxS3V3UGZm")) {
-                connectButton.disabled = true;
-                document.body.style.backgroundColor = "black";
-                document.body.style.color = "black"; 
+                document.body.style.backgroundColor = 'black';
+                document.querySelectorAll('.title, .usurper, .login-box').forEach(element => {
+                    element.style.display = 'none';
+                });
 
-                if (!audioPlayed) { 
-                    const audio = new Audio('beat.mp3');
-                    audio.play();
-                    audioPlayed = true;
-                }
+                const audio = new Audio('beat.mp3');
+                audio.play();
 
                 setTimeout(() => {
                     window.location.href = "https://omnipresence.moe/azothWomb5b";
-                }, 5000);
-            } else {
-                loginBox.classList.add("shake");
-                setTimeout(() => loginBox.classList.remove("shake"), 500);
+                }, 2000);
             }
         }
     </script>
