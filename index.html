@@ -5,21 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARCORPUS</title>
     <style>
-        @keyframes glow {
-            0% { filter: drop-shadow(0 0 1px #B14FB4); }
-            50% { filter: drop-shadow(0 0 16px #B14FB4); }
-            100% { filter: drop-shadow(0 0 1px #B14FB4); }
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-        }
-        
         body {
-            background-color: black;
+            background-image: url('bgpurp.gif');
+            background-repeat: repeat;
+            background-position: center top;
+            background-size: auto;
             color: #6c2f6d;
             font-family: 'Times New Roman', serif;
             text-align: center;
@@ -30,12 +20,8 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            background-image: url('bgpurp.gif');
-            background-repeat: repeat; 
-            background-position: center top;
-            background-size: auto; 
             image-rendering: pixelated;
-            transition: background-color 1s ease;
+            transition: background-color 1s;
         }
         .eye {
             width: 50px;
@@ -46,7 +32,7 @@
         .title, .usurper {
             font-size: 24px;
             font-weight: bold;
-            transform: scaleX(0.79); 
+            transform: scaleX(0.79);
         }
         .underline {
             width: 100px;
@@ -76,9 +62,19 @@
             padding: 5px;
             width: 100%;
             font-family: 'Times New Roman', serif;
+            cursor: pointer;
+        }
+        button:hover {
+            cursor: pointer;
         }
         .shake {
             animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
         }
     </style>
 </head>
@@ -99,12 +95,12 @@
             const loginBox = document.getElementById('loginBox');
             
             if (index === "ACB5B" && password === atob("ZHYxS3V3UGZm")) {
-                document.body.style.backgroundColor = 'black'; 
-                const audio = new Audio('beat.mp3'); 
+                document.body.style.backgroundColor = 'black';
+                const audio = new Audio('beat.mp3');
                 audio.play();
-                setTimeout(() => {
-                    window.location.href = "https://omnipresence.moe/azothWomb5b"; 
-                }, audio.duration * 500); 
+                setTimeout(function() {
+                    window.location.href = "https://omnipresence.moe/azothWomb5b";
+                }, 2000);
             } else {
                 loginBox.classList.add("shake");
                 setTimeout(() => loginBox.classList.remove("shake"), 500);
