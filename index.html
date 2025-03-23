@@ -35,6 +35,7 @@
             background-position: center top;
             background-size: auto; 
             image-rendering: pixelated;
+            transition: background-color 1s ease;
         }
         .eye {
             width: 50px;
@@ -98,7 +99,12 @@
             const loginBox = document.getElementById('loginBox');
             
             if (index === "ACB5B" && password === atob("ZHYxS3V3UGZm")) {
-                window.location.href = "https://omnipresence.moe/azothWomb5b";
+                document.body.style.backgroundColor = 'black'; // Make the background black
+                const audio = new Audio('beat.mp3'); // Play the beat
+                audio.play();
+                setTimeout(() => {
+                    window.location.href = "https://omnipresence.moe/azothWomb5b"; // Redirect after playing the sound
+                }, audio.duration * 1000); // Wait until the audio is finished before redirecting
             } else {
                 loginBox.classList.add("shake");
                 setTimeout(() => loginBox.classList.remove("shake"), 500);
