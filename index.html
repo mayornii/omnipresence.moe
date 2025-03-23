@@ -11,6 +11,13 @@
             100% { filter: drop-shadow(0 0 1px #B14FB4); }
         }
         
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+        
         body {
             background-color: black;
             color: #6c2f6d;
@@ -69,6 +76,9 @@
             width: 100%;
             font-family: 'Times New Roman', serif;
         }
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -76,7 +86,7 @@
     <div class="title">ARCORPUS</div>
     <div class="underline"></div>
     <div class="usurper">Usurper</div>
-    <div class="login-box">
+    <div class="login-box" id="loginBox">
         <input type="text" id="index" placeholder="INDEX">
         <input type="password" id="password" placeholder="PASSWORD">
         <button onclick="checkCredentials()">CONNECT</button>
@@ -85,10 +95,13 @@
         function checkCredentials() {
             const index = document.getElementById('index').value;
             const password = document.getElementById('password').value;
+            const loginBox = document.getElementById('loginBox');
+            
             if (index === "ACB5B" && password === atob("ZHYxS3V3UGZm")) {
                 window.location.href = "https://omnipresence.moe/azothWomb5b";
             } else {
-                alert("Access Denied");
+                loginBox.classList.add("shake");
+                setTimeout(() => loginBox.classList.remove("shake"), 500);
             }
         }
     </script>
