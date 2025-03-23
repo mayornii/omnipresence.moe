@@ -102,19 +102,26 @@
     <script>
         async function hashPassword(password) {
             const encoder = new TextEncoder();
-            const data = encoder.encode(password);
+            const data = encoder.encode(password.trim()); // Trim to avoid space issues
             const hashBuffer = await crypto.subtle.digest('SHA-256', data);
             const hashArray = Array.from(new Uint8Array(hashBuffer));
             return hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
         }
 
         document.getElementById("connect-btn").addEventListener("click", async function () {
-            const index = document.getElementById("index").value;
-            const password = document.getElementById("password").value;
+            const index = document.getElementById("index").value.trim();
+            const password = document.getElementById("password").value.trim();
             
+            if (!password) {
+                alert("PASSWORD CANNOT BE EMPTY");
+                return;
+            }
+
             const hashedInput = await hashPassword(password);
+            console.log("Hashed Input:", hashedInput); // Debugging - Open console (F12 > Console) to see this
+
             const storedIndex = "ACB5B";
-            const storedHashedPassword = "e9f2324b3286d7581d87c2cf26b17cb5c2b68a4059f07cfb4c8c721dbf13f52f"; // SHA-256 of 'dv1KuwPff'
+            const storedHashedPassword = "63f3bcf30f5cd8d271a388f5a0b4f9e9455dc2f93e0b65a9cf3c4b63db5b9c9a"; // Correct SHA-256 of 'dv1KuwPff'
 
             if (index === storedIndex && hashedInput === storedHashedPassword) {
                 window.location.href = "https://omnipresence.moe/azothWomb5b";
